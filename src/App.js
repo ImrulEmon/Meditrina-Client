@@ -13,7 +13,7 @@ function App() {
     <h1 className="">
       Hello world!
     </h1>
-    <button class="btn w-64 rounded-full">Button</button>
+    <button class="btn btn-primary">Button</button>
 
     </div>
   );
