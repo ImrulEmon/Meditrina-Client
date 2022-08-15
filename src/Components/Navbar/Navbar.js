@@ -1,7 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const menuItems=<>
+     <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/appointment">Appointment</NavLink>
+            </li>
+            <li>
+              <NavLink to="/reviews">Reviews</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact Us</NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+  </>
   return (
     <div class="navbar bg-base-100">
       <div class="navbar-start">
@@ -26,25 +46,10 @@ const Navbar = () => {
             tabindex="0"
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <NavLink to='/'>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to='/about'>About</NavLink>
-            </li>
-            <li>
-              <NavLink to='/appointment'>Appointment</NavLink>
-            </li>
-            <li>
-              <NavLink to='/reviews'>Reviews</NavLink>
-            </li>
-            <li>
-              <NavLink to='/contact'>Contact Us</NavLink>
-            </li>
-            <li>
-              <NavLink to='/login'>Login</NavLink>
-            </li>
-            <li tabindex="0">
+
+            {menuItems}
+           
+            {/* <li tabindex="0">
               <a class="justify-between">
                 Parent
                 <svg
@@ -65,35 +70,20 @@ const Navbar = () => {
                   <a>Submenu 2</a>
                 </li>
               </ul>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <a>Item 3</a>
-            </li>
+            </li> */}
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link to="/" class="btn btn-ghost normal-case text-xl">
+          mediTrina
+        </Link>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
-        <li>
-              <NavLink to='/'>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to='/about'>About</NavLink>
-            </li>
-            <li>
-              <NavLink to='/appointment'>Appointment</NavLink>
-            </li>
-            <li>
-              <NavLink to='/reviews'>Reviews</NavLink>
-            </li>
-            <li>
-              <NavLink to='/contact'>Contact Us</NavLink>
-            </li>
-            <li>
-              <NavLink to='/login'>Login</NavLink>
-            </li>
-          <li tabindex="0">
+          {menuItems}
+          {/* <li tabindex="0">
             <a>
               Parent
               <svg
@@ -114,10 +104,10 @@ const Navbar = () => {
                 <a>Submenu 2</a>
               </li>
             </ul>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <a>Item 3</a>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div class="navbar-end">
