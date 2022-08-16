@@ -1,0 +1,40 @@
+.hero-bg{
+    background-image: url("../../assets/images/bg.png");
+}
+blockquote::before {
+    content: open-quote;
+    animation: dancing 1s linear infinite;
+    display: inline-block;
+    transform: rotate(13deg);
+  }
+  blockquote::after {
+    content: close-quote;
+    animation: dancing 1s linear infinite;
+    display: inline-block;
+    transform: rotate(13deg);
+  }
+  blockquote {
+    quotes: "“" "”" "‘" "’";
+  }
+
+  @keyframes dancing {
+    0% {
+      transform: rotate(13deg) scale(2);
+    }
+  
+    25% {
+      transform: rotate(0deg);
+    }
+  
+    50% {
+      transform: rotate(-13deg) scale(2);
+    }
+  
+    75% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(13deg) scale(2);
+    }
+  }
