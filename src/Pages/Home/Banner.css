@@ -1,5 +1,9 @@
 .hero-bg{
     background-image: url("../../assets/images/bg.png");
+    margin: auto auto;
+}
+.area{
+  border: 2px solid red;
 }
 blockquote::before {
     content: open-quote;
