@@ -4,6 +4,7 @@ import Info from './Info/Info';
 import "./Home.css"
 import Services from './Services/Services';
 import MakeAppointment from './MakeAppointment/MakeAppointment';
+import Testimonials from './Testimonials/Testimonials';
 const Home = () => {
     return (
         <div className='home px-12'>
@@ -11,6 +12,7 @@ const Home = () => {
             <Info />
             <Services/>
             <MakeAppointment />
+            <Testimonials />
         </div>
     );
 };

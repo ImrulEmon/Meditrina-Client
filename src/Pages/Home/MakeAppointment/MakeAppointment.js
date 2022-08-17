@@ -6,7 +6,7 @@ import PrimaryButton from '../../../Components/Buttons/PrimaryButton';
 const MakeAppointment = () => {
     return (
         <section style={{background:`url(${makeAppointmentBg})`}}
-         className='flex items-center justify-center my-5 bg-center bg-no-repeat bg-cover rounded-xl'>
+         className='flex items-center justify-center my-5 bg-center bg-fixed bg-no-repeat bg-cover rounded-xl'>
 
             <div className='flex-1 hidden lg:block'>
                 <img className='mt-[-250px]' src={doctor} alt="Appointment Doctor" />
