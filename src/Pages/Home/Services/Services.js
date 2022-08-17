@@ -32,9 +32,9 @@ const Services = () => {
 
     {/* Service Banner */}
 
-    {/* <div className="my-24">
+    <div className="my-24">
     <ServiceBanner/>
-    </div> */}
+    </div>
 
     </div>
   );
