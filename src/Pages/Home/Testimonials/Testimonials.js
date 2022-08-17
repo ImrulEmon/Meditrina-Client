@@ -12,7 +12,7 @@ const Testimonials = () => {
     { _id: 1, name: "Eren Yegar", review: "", img: ey ,location:"Sylhet"},
   ];
   return (
-    <section className="my-20">
+    <section className="my-20 px-12">
       <div className="flex justify-between items-center">
         <div>
           <h3 className="text-primary text-2xl font-bold uppercase">

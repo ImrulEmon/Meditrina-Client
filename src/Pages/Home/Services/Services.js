@@ -12,7 +12,7 @@ const Services = () => {
         {_id:3,name:"Teeth Whitening",description:'',img:whitening}
     ]
   return (
-    <div className="my-32">
+    <div className="my-32 px-12">
       <div className="text-center">
         <h3 className="text-primary font-bold text-xl landing-7 uppercase">
           Our Services
