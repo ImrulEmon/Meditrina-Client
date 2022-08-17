@@ -6,8 +6,8 @@ const InfoCard = ({img,cardTitle,bgClass,info}) => {
       <figure className="lg:pl-5">
         <img src={img} alt="Album" />
       </figure>
-      <div class="card-body text-white">
-        <h2 class="card-title font-bold">{cardTitle}</h2>
+      <div className="card-body text-white">
+        <h2 className="card-title font-bold">{cardTitle}</h2>
         <p>{info}</p>
       </div>
     </div>

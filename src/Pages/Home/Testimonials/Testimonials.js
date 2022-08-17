@@ -8,8 +8,8 @@ import Review from "./Review";
 const Testimonials = () => {
   const reviews = [
     { _id: 1, name: "Harry Potter", review: "", img: hp ,location:"Dhaka"},
-    { _id: 1, name: "Mr. Luffy", review: "", img: lf ,location:"Chittagong"},
-    { _id: 1, name: "Eren Yegar", review: "", img: ey ,location:"Sylhet"},
+    { _id: 2, name: "Mr. Luffy", review: "", img: lf ,location:"Chittagong"},
+    { _id: 3, name: "Eren Yegar", review: "", img: ey ,location:"Sylhet"},
   ];
   return (
     <section className="my-20 px-12">

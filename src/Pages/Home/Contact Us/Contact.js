@@ -30,21 +30,21 @@ const Contact = () => {
           //   style={{ border: "2px solid green" }}
         >
           <input
-            block
+            block="true"
             className="input input-bordered input-primary w-4/5 lg:w-1/2 mx-auto"
             type="email"
             placeholder="email"
             {...register("email", { required: true })}
           />
           <input
-            block
+            block="true"
             className="input input-bordered input-primary w-4/5 lg:w-1/2 mx-auto"
             type="text"
             placeholder="subject"
             {...register("subject", { required: true })}
           />
           <textarea
-            block
+            block="true"
             className="input input-bordered input-primary w-4/5 lg:w-1/2 h-44 mx-auto"
             placeholder="Your Message"
             {...register("message", { required: true })}
@@ -52,7 +52,7 @@ const Contact = () => {
 
           <button
             type="submit"
-            class="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-fit mx-auto"
+            className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary w-fit mx-auto"
           >
             Submit
           </button>
