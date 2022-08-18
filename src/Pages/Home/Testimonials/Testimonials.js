@@ -14,11 +14,11 @@ const Testimonials = () => {
   return (
     <section className="my-20 px-12">
       <div className="flex justify-between items-center">
-        <div>
-          <h3 className="text-primary text-2xl font-bold uppercase">
+        <div className={`reveal fade-left`}>
+          <h3 className={`text-primary text-2xl font-bold uppercase`}>
             Testimonials
           </h3>
-          <h2 className="text-4xl">What Our Patients Says</h2>
+          <h2 className={`text-4xl`}>What Our Patients Says</h2>
         </div>
 
         <div style={{ transform: "rotate(180deg)" }}>

@@ -6,11 +6,29 @@ import whitening from "../../../assets/images/whitening.png";
 import ServiceBanner from "./ServiceBanner";
 
 const Services = () => {
-    const services=[
-        {_id:11,name:"Fluoride Treatment",description:'',img:fluoride},
-        {_id:22,name:"Cavity Filling",description:'',img:cavity},
-        {_id:33,name:"Teeth Whitening",description:'',img:whitening}
-    ]
+  const services = [
+    {
+      _id: 11,
+      name: "Fluoride Treatment",
+      description: "",
+      img: fluoride,
+      ac: "reveal fade-left",
+    },
+    {
+      _id: 22,
+      name: "Cavity Filling",
+      description: "",
+      img: cavity,
+      ac: "reveal fade-bottom",
+    },
+    {
+      _id: 33,
+      name: "Teeth Whitening",
+      description: "",
+      img: whitening,
+      ac: "reveal fade-right",
+    },
+  ];
   return (
     <div className={`my-32 px-12`}>
       <div className={`text-center reveal fade-bottom`}>
@@ -22,20 +40,20 @@ const Services = () => {
 
       {/* Service */}
 
-      <div className={`grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 reveal fade-right`}>
-      {/*  container mx-auto */}
-        {
-            services.map(service=><Service key={service._id}
-            service={service}></Service>)
-        }
+      <div
+        className={`grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10`}
+      >
+        {/*  container mx-auto */}
+        {services.map((service) => (
+          <Service key={service._id} service={service}></Service>
+        ))}
       </div>
 
-    {/* Service Banner */}
+      {/* Service Banner */}
 
-    <div className="my-24">
-    <ServiceBanner/>
-    </div>
-
+      <div className="my-24">
+        <ServiceBanner />
+      </div>
     </div>
   );
 };

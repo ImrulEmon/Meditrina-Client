@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = () => {
   const menuItems=<>
      <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/home">Home</NavLink>
             </li>
             <li>
               <NavLink to="/about">About</NavLink>
@@ -78,9 +78,9 @@ const Navbar = () => {
             </li> */}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <HashLink to="/home#homeTop" className="btn btn-ghost normal-case text-xl">
           mediTrina
-        </Link>
+        </HashLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">

@@ -3,10 +3,10 @@ import "./Service.css";
 
 const Service = ({service}) => {
 
-    const {name,description,img}=service;
+    const {name,description,img,ac}=service;
 
   return (
-    <div className="card lg:max-w-lg bg-base-100 shadow-xl mx-auto">
+    <div className={`card lg:max-w-lg bg-base-100 shadow-xl mx-auto ${ac}`}>
       <figure className="px-10 pt-10">
         <img
           src={img}
