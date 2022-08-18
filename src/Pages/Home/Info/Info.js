@@ -12,18 +12,21 @@ const Info = () => {
         bgClass="bg-gradient-to-r from-secondary to-primary"
         img={clock}
         info='12am-12pm'
+        at={.1}
       ></InfoCard>
       <InfoCard
         cardTitle="Visit Our Location"
         bgClass="bg-accent"
         img={marker}
         info='Medical Road, Kajolshah, Sylhet - 3100'
+        at={.9}
       ></InfoCard>
       <InfoCard
         cardTitle="Contact Us Now"
         bgClass="bg-gradient-to-r from-secondary to-primary"
         img={phone}
         info=" 0821-713487"
+        at={.2}
       ></InfoCard>
     </div>
   );

@@ -1,8 +1,12 @@
 import React from "react";
 
-const InfoCard = ({img,cardTitle,bgClass,info}) => {
+const InfoCard = ({img,cardTitle,bgClass,info,at}) => {
   return (
-    <div className={`card lg:card-side bg-base-100 shadow-xl py-6 ${bgClass}`}>
+    <div className={`card lg:card-side bg-base-100 shadow-xl py-6 ${bgClass}
+    reveal
+    fade-left
+    `}
+    >
       <figure className="lg:pl-5">
         <img src={img} alt="Album" />
       </figure>

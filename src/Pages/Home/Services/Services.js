@@ -12,9 +12,9 @@ const Services = () => {
         {_id:33,name:"Teeth Whitening",description:'',img:whitening}
     ]
   return (
-    <div className="my-32 px-12">
-      <div className="text-center">
-        <h3 className="text-primary font-bold text-xl landing-7 uppercase">
+    <div className={`my-32 px-12`}>
+      <div className={`text-center reveal fade-bottom`}>
+        <h3 className={`text-primary font-bold text-xl landing-7 uppercase`}>
           Our Services
         </h3>
         <h2 className="text-4xl landing-10 ">Services We Provide</h2>
@@ -22,7 +22,7 @@ const Services = () => {
 
       {/* Service */}
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
+      <div className={`grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 reveal fade-right`}>
       {/*  container mx-auto */}
         {
             services.map(service=><Service key={service._id}
