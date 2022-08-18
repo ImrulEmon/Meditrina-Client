@@ -1,3 +1,6 @@
+.home{
+  overflow-x: hidden;
+}
 .reveal {
     position: relative;
     opacity: 0;
