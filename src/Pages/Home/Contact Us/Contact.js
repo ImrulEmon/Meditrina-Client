@@ -21,7 +21,7 @@ const Contact = () => {
           <h4 className="text-xl text-primary font-bold text-center">
             Contact Us
           </h4>
-          <h2 className="text-4xl text-center">Stay Connected With Us</h2>
+          <h2 className="text-4xl text-center px-12">Stay Connected With Us</h2>
         </legend>
         <form
           onSubmit={handleSubmit(onSubmit)}

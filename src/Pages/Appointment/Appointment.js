@@ -1,11 +1,12 @@
 import React from 'react';
+import Footer2 from '../../Components/Footer2/Footer2';
 import './Appointment.css';
 
 const Appointment = () => {
     return (
-        <div className='about container mx-auto flex align-content justify-items-center bg-green-900'>
-        <h1 className='text-white text-center mx-auto my-auto text-5xl'>Appointment</h1>
-    </div>
+        <div>
+            <Footer2/>
+        </div>
     );
 };
 

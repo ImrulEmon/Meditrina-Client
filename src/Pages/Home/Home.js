@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './scroll_animation';
 import 'animate.css';
 import Banner from './Banner';
