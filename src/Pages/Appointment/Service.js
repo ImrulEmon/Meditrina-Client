@@ -17,7 +17,7 @@ const Service = ({ service,setTreatment }) => {
           {slots.length} {slots.length > 1 ? "slots" : "slot"} available
         </p>
         <div className="card-actions justify-center py-4">
-          <label htmlFor="booking-modal" className="btn modal-button btn-secondary text-white font-bold" disabled={slots.length === 0}
+          <label htmlFor="booking-modal" className="btn modal-button btn-secondary text-white font-bold bg-gradient-to-r from-secondary to-primary" disabled={slots.length === 0}
             onClick={()=>setTreatment(service)}>Book Appointment</label>
         </div>
       </div>

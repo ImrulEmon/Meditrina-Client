@@ -18,7 +18,6 @@ const handleBooking = event =>{
   const name = event.target.name.value;
   const phone = event.target.phone.value;
   const email = event.target.email.value;
-
   const booking ={
     "slot":slot,
     "date":date,
@@ -26,9 +25,22 @@ const handleBooking = event =>{
     "phone":phone,
     "email":email
   }
- 
   console.log(booking);
+
+  fetch("http://localhost:5000/booking", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(booking),
+  }).then((res) => {
+    if (res.status == 200) {
+      alert("Appointment Added Successfully");
+       //To close the modal
   setTreatment(null);
+    }
+  });
+ 
 }
 
   return (
@@ -95,7 +107,7 @@ const handleBooking = event =>{
             <input
               type="submit"
               value="Submit"
-              className="btn btn-primary w-full max-w-xs"
+              className="btn btn-primary w-full max-w-xs bg-gradient-to-l from-secondary to-primary text-white text-bold"
             />
           </form>
         </div>
