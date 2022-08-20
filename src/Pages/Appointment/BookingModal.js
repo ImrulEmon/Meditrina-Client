@@ -1,9 +1,12 @@
 import React from "react";
 import { format } from "date-fns";
 import { useForm } from "react-hook-form";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../Login/Firebase/firebase.init";
 
 const BookingModal = ({ date, treatment,setTreatment }) => {
   const { _id,name, slots } = treatment;
+  const [user] = useAuthState(auth);
   // const {
   //   register,
   //   handleSubmit,
@@ -27,7 +30,7 @@ const handleBooking = event =>{
   }
   console.log(booking);
 
-  fetch("http://localhost:5000/booking", {
+  fetch("https://meditrina-server.herokuapp.com/booking", {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
@@ -68,7 +71,7 @@ const handleBooking = event =>{
               type="text"
               placeholder="Date"
               name="date"
-              value={format(date,"PP")}
+              value={format(date,"PP")||''}
             />
 
             <select
@@ -77,27 +80,30 @@ const handleBooking = event =>{
               className="select select-bordered w-full max-w-xs"
               name="slot"
             >
-              {slots?.map((slot) => (
-                <option value={slot}>{slot}</option>
+              {slots?.map((slot,index) => (
+                <option key={index} value={slot}>{slot}</option>
               ))}
             </select>
 
             <input
-              
+              disabled
+              value={user?.displayName||''}
               className="input input-bordered w-full max-w-xs"
               type="text"
               placeholder="Full Name"
               name="name"
+              required
             />
             <input
-              
+              required
               className="input input-bordered w-full max-w-xs"
               type="tel"
               placeholder="Phone Number"
              name="phone"
             />
             <input
-            
+              disabled
+              value={user?.email||''}
               className="input input-bordered w-full max-w-xs"
               type="email"
               placeholder="Email"

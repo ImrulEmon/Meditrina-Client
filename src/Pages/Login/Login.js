@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSignInWithEmailAndPassword,
@@ -30,6 +30,13 @@ const Login = () => {
 
   let SignInError;
 
+  useEffect( ()=>{
+    if (user || gUser) {
+      // console.log(gUser || user);
+      navigate(from, { replace: true });
+    }
+  } ,[user,gUser,from,navigate])
+
   if (loading || gLoading) {
     return <Loading />;
   }
@@ -41,16 +48,11 @@ const Login = () => {
       </p>
     );
   }
-
-  if (user || gUser) {
-    // console.log(gUser || user);
-    navigate(from, { replace: true });
-  }
+  
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
-
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="card w-96 bg-base-100 shadow-xl">
