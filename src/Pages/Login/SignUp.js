@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "./Firebase/firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../../Components/Spinner/Loading";
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {
@@ -19,8 +19,8 @@ const Login = () => {
 
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
   let SignInError;
 
@@ -41,16 +41,43 @@ const Login = () => {
   }
 
   const onSubmit = (data) => {
-    signInWithEmailAndPassword(data.email, data.password);
+    console.log(data);
+    createUserWithEmailAndPassword(data.email, data.password);
   };
 
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-2xl text-center text-accent font-bold">Login</h2>
+          <h2 className="text-2xl text-center text-accent font-bold">
+            Sign Up
+          </h2>
 
           <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Full Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="input input-bordered w-full max-w-xs"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name is Required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.email?.type === "required" && (
+                  <span className="label-text-alt text-red-700">
+                    {errors.name.message}
+                  </span>
+                )}
+              </label>
+            </div>
+
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -81,7 +108,6 @@ const Login = () => {
                     {errors.email.message}
                   </span>
                 )}
-                
               </label>
             </div>
 
@@ -121,13 +147,13 @@ const Login = () => {
             <input
               className="btn btn-accent text-white font-bold w-full my-2"
               type="submit"
-              value="Login"
+              value="Sign Up"
             />
           </form>
           <small className="text-center mt-2">
-            New to MediTrina?{" "}
-            <Link className="text-secondary font-bold" to="/signup">
-              Create New Account
+            Alreagy have an account?{" "}
+            <Link className="text-secondary font-bold" to="/login">
+              Login
             </Link>
           </small>
           <div className="divider">OR</div>
@@ -144,4 +170,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
