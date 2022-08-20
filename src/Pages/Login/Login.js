@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -9,8 +9,14 @@ import { useForm } from "react-hook-form";
 import Loading from "../../Components/Spinner/Loading";
 
 const Login = () => {
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const {
     register,
     formState: { errors },
@@ -37,7 +43,8 @@ const Login = () => {
   }
 
   if (user || gUser) {
-    console.log(gUser || user);
+    // console.log(gUser || user);
+    navigate(from, { replace: true });
   }
 
   const onSubmit = (data) => {
