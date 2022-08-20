@@ -1,9 +1,18 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import auth from "../../Pages/Login/Firebase/firebase.init";
 import './Navbar.css';
 
 const Navbar = () => {
+
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
+
   const menuItems=<>
      <li>
               <NavLink to="/home">Home</NavLink>
@@ -21,7 +30,8 @@ const Navbar = () => {
               <HashLink to="/home#contact">Contact Us</HashLink>
             </li>
             <li>
-              <NavLink to="/login">Login</NavLink>
+              {user?<button className="btn text-white" onClick={logout}>Log Out</button>:
+                <NavLink to="/login">Login</NavLink>}
             </li>
   </>
   return (
@@ -48,34 +58,7 @@ const Navbar = () => {
             tabIndex="0"
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-
             {menuItems}
-           
-            {/* <li tabIndex="0">
-              <a className="justify-between">
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li> */}
-            {/* <li>
-              <a>Item 3</a>
-            </li> */}
           </ul>
         </div>
         <HashLink to="/home#homeTop" className="btn btn-ghost normal-case text-xl">
@@ -85,35 +68,12 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           {menuItems}
-          {/* <li tabIndex="0">
-            <a>
-              Parent
-              <svg
-                className="fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-              >
-                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-              </svg>
-            </a>
-            <ul className="p-2">
-              <li>
-                <a>Submenu 1</a>
-              </li>
-              <li>
-                <a>Submenu 2</a>
-              </li>
-            </ul>
-          </li> */}
-          {/* <li>
-            <a>Item 3</a>
-          </li> */}
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+       { user?
+       <a className="btn">{user?.displayName}</a>
+       :<a className="btn">No User</a>}
       </div>
     </div>
   );
