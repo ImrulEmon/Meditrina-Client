@@ -44,6 +44,13 @@ const handleBooking = event =>{
   })
   .then((res) => res.json())
   .then(data=>{
+    console.log(data)
+    if(data.success){
+      toast.success(`Appointment is set on ${formattedDate} at ${slot}`)
+    }
+    else{
+      toast.error(`Already have an  Appointment on ${data.booking?.date} at ${data.booking?.slot}`)
+    }
     //to close the modal
     setTreatment(null)
   })
