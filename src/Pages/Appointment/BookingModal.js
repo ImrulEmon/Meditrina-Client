@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../Login/Firebase/firebase.init";
+import { toast } from 'react-toastify';
 
 const BookingModal = ({ date, treatment,setTreatment }) => {
   const { _id,name, slots } = treatment;
@@ -14,35 +15,38 @@ const BookingModal = ({ date, treatment,setTreatment }) => {
   // } = useForm({});
   // const onSubmit = (data) => console.log(data);
   // console.log(errors);
+  const formattedDate=format(date,"PP");
 const handleBooking = event =>{
   event.preventDefault()
   const slot = event.target.slot.value;
-  const date = event.target.date.value;
-  const name = event.target.name.value;
   const phone = event.target.phone.value;
-  const email = event.target.email.value;
+  // const date = event.target.date.value;
+  // const name = event.target.name.value;
+  // const email = event.target.email.value;
   const booking ={
-    "slot":slot,
-    "date":date,
-    "name":name,
-    "phone":phone,
-    "email":email
+
+    treatmentId:_id,
+    treatment:name,
+    date:formattedDate,
+    slot,
+    patient:user.email,
+    patientName:user.displayName,
+    phone:phone
   }
   console.log(booking);
 
-  fetch("https://meditrina-server.herokuapp.com/booking", {
+  fetch("http://localhost:5000/booking", {
     method: "POST", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(booking),
-  }).then((res) => {
-    if (res.status == 200) {
-      alert("Appointment Added Successfully");
-       //To close the modal
-  setTreatment(null);
-    }
-  });
+  })
+  .then((res) => res.json())
+  .then(data=>{
+    //to close the modal
+    setTreatment(null)
+  })
  
 }
 
