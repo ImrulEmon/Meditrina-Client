@@ -79,10 +79,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        {user ? (
-          <a className="btn">{user?.displayName}</a>
-        ) : (
-          <a className="btn">No User</a>
+        {user && (
+          <label
+          for="dashboard-sidebar"
+          class="btn btn-accent font-bold drawer-button lg:hidden"
+        >
+        {user.displayName}
+        </label>
         )}
       </div>
     </div>
