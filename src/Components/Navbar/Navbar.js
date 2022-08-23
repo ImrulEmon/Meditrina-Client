@@ -4,36 +4,43 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import auth from "../../Pages/Login/Firebase/firebase.init";
-import './Navbar.css';
+import "./Navbar.css";
 
 const Navbar = () => {
-
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
   };
 
-  const menuItems=<>
-     <li>
-              <NavLink to="/home">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">About</NavLink>
-            </li>
-            <li>
-              <NavLink to="/appointment">Appointment</NavLink>
-            </li>
-            <li>
-              <NavLink to="/reviews">Reviews</NavLink>
-            </li>
-            <li>
-              <HashLink to="/home#contact">Contact Us</HashLink>
-            </li>
-            <li>
-              {user?<button className="btn text-white" onClick={logout}>Log Out</button>:
-                <NavLink to="/login">Login</NavLink>}
-            </li>
-  </>
+  const menuItems = (
+    <>
+      <li>
+        <NavLink to="/home">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+      <li>
+        <NavLink to="/appointment">Appointment</NavLink>
+      </li>
+      <li>
+        <NavLink to="/reviews">Reviews</NavLink>
+      </li>
+      <li>
+        <HashLink to="/home#contact">Contact Us</HashLink>
+      </li>
+      {user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>}
+      <li>
+        {user ? (
+          <button className="btn text-white" onClick={logout}>
+            Log Out
+          </button>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
+      </li>
+    </>
+  );
   return (
     <div className="navbar bg-base-100 sticky-nav">
       <div className="navbar-start">
@@ -61,19 +68,22 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <HashLink to="/home#homeTop" className="btn btn-ghost normal-case text-xl">
+        <HashLink
+          to="/home#homeTop"
+          className="btn btn-ghost normal-case text-xl"
+        >
           mediTrina
         </HashLink>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">
-          {menuItems}
-        </ul>
+        <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-       { user?
-       <a className="btn">{user?.displayName}</a>
-       :<a className="btn">No User</a>}
+        {user ? (
+          <a className="btn">{user?.displayName}</a>
+        ) : (
+          <a className="btn">No User</a>
+        )}
       </div>
     </div>
   );
