@@ -114,6 +114,9 @@ const Login = () => {
                 })}
               />
               <label className="label">
+                <span>Forgot password?<Link className="text-secondary font-bold" to='/resetPassword'>Reset</Link></span>
+              </label>
+              <label className="label">
                 {errors.password?.type === "required" && (
                   <span className="label-text-alt text-red-700">
                     {errors.password.message}

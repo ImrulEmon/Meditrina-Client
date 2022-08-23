@@ -12,6 +12,7 @@ import RequireAuth from "./Pages/Login/RequireAuth";
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import ForgotPassword from "./Pages/Login/ForgotPassword";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="reviews" element={<Reviews />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="resetPassword" element={<ForgotPassword />} />
       </Routes>
       <ToastContainer />
     </div>
