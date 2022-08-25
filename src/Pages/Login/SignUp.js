@@ -8,6 +8,7 @@ import {
 import auth from "./Firebase/firebase.init";
 import { useForm } from "react-hook-form";
 import Loading from "../../Components/Spinner/Loading";
+import useToken from '../../hooks/useToken'
 
 const SignUp = () => {
   const [displayName, setDisplayName] = useState('');
@@ -25,6 +26,8 @@ const SignUp = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+    const [token,setToken]=useToken(user || gUser)
+
     const navigate = useNavigate();
 
   let SignInError;
@@ -41,15 +44,16 @@ const SignUp = () => {
     );
   }
 
-  if (user || gUser) {
-    console.log(gUser || user);
+  if (token) {
+
+     navigate('/appointment');
   }
 
   const onSubmit = async(data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName:data.name });
     console.log("Update done")
-    navigate('/appointment');
+     navigate('/appointment');
   };
 
 console.log(user);
